@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guia de Leitura | Guerra Civil — Guia de Leitura</title>
+  <meta name="description" content="Fan page independente e guia de leitura de Guerra Civil (2006), da Marvel Comics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- CABEÇALHO (igual em todas as páginas; ao alterar, altere nos 5 arquivos) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Civil War — Fan Page & Reading Guide">
+      <svg class="logo-star" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <clipPath id="metade-esq"><rect x="0" y="0" width="50" height="100"/></clipPath>
+          <clipPath id="metade-dir"><rect x="50" y="0" width="50" height="100"/></clipPath>
+        </defs>
+        <polygon clip-path="url(#metade-esq)" fill="#2454A4" points="50,4 61,38 97,38 68,59 79,94 50,73 21,94 32,59 3,38 39,38"/>
+        <polygon clip-path="url(#metade-dir)" fill="#C62835" points="50,4 61,38 97,38 68,59 79,94 50,73 21,94 32,59 3,38 39,38"/>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-title">CIVIL WAR</span>
+        <span class="logo-sub">FAN PAGE &amp; READING GUIDE</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+
+    <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="historia.html">A História</a></li>
+        <li><a href="guia.html" aria-current="page">Guia de Leitura</a></li>
+        <li><a href="personagens.html">Personagens</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+      <a href="guia.html" class="btn btn-primary">COMEÇAR A LER</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+<section class="section section-alt">
+  <div class="container">
+    <h1 class="section-title">SEU GUIA DE LEITURA</h1>
+    <p class="lead">Explore a sequência de edições de Guerra Civil, acompanhe seu progresso e adicione as imagens de cada quadrinho conforme o projeto evolui.</p>
+
+    <div class="modes" role="group" aria-label="Modalidades de leitura">
+      <button class="mode mode-essential" type="button" data-mode="essencial" aria-pressed="false">
+        <span class="mode-name">Leitura essencial</span>
+        <span class="mode-desc">Edições da minissérie principal presentes na lista.</span>
+      </button>
+      <button class="mode mode-recommended" type="button" data-mode="recomendada" aria-pressed="false">
+        <span class="mode-name">Leitura recomendada</span>
+        <span class="mode-desc">Seleção editorial provisória: títulos “Civil War”.</span>
+      </button>
+      <button class="mode mode-complete is-active" type="button" data-mode="completo" aria-pressed="true">
+        <span class="mode-name">Guia completo</span>
+        <span class="mode-desc">Todas as edições, na ordem da lista.</span>
+      </button>
+    </div>
+
+    <div class="progress">
+      <p class="progress-text" id="progress-text" aria-live="polite"></p>
+      <div class="progress-bar" id="progress-bar" role="progressbar" aria-label="Progresso de leitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="toolbar" id="lista-topo">
+      <div class="search">
+        <label for="search-input">Buscar por série ou número</label>
+        <input type="search" id="search-input" placeholder="Ex.: Black Panther ou 533" autocomplete="off">
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar por situação">
+        <button type="button" class="filter is-active" data-filter="todas" aria-pressed="true">Todas</button>
+        <button type="button" class="filter" data-filter="nao-lidas" aria-pressed="false">Não lidas</button>
+        <button type="button" class="filter" data-filter="lidas" aria-pressed="false">Concluídas</button>
+      </div>
+    </div>
+
+    <p class="results-info" id="results-info" aria-live="polite"></p>
+
+    <ol class="edition-list" id="edition-list"></ol>
+
+    <div class="empty" id="empty-message" hidden>
+      <p id="empty-text"></p>
+      <button type="button" class="btn btn-ghost" id="clear-search">LIMPAR BUSCA E FILTROS</button>
+    </div>
+
+    <nav class="pagination" id="pagination" aria-label="Páginas da lista">
+      <button type="button" class="btn btn-ghost" id="page-prev">ANTERIOR</button>
+      <span id="page-info"></span>
+      <button type="button" class="btn btn-ghost" id="page-next">PRÓXIMA</button>
+    </nav>
+
+    <button type="button" class="back-top" id="back-top">VOLTAR AO INÍCIO DA LISTA</button>
+  </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="footer-name">Guerra Civil — Guia de Leitura</p>
+      <p class="footer-small">Projeto educacional independente.</p>
+    </div>
+    <nav aria-label="Navegação do rodapé">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="historia.html">A História</a></li>
+        <li><a href="guia.html">Guia de Leitura</a></li>
+        <li><a href="personagens.html">Personagens</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <p class="footer-small footer-legal">Os personagens e as obras citados pertencem aos respectivos titulares de direitos.</p>
+  </div>
+</footer>
+
+<script src="js/editions.js"></script>
+<script src="js/script.js"></script>
+<script src="js/guia.js"></script>
+</body>
+</html>
